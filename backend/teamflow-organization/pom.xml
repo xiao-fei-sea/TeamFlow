@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.teamflow</groupId>
+        <artifactId>teamflow</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>teamflow-organization</artifactId>
+    <name>teamflow-organization</name>
+    <description>组织、组织成员、角色、租户校验组件 TenantGuard（M2 填充实现）</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-common</artifactId>
+        </dependency>
+    </dependencies>
+</project>

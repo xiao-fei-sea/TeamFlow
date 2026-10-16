@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: teamflow
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 端口/密码等全部环境变量化，与 docker-compose.dev.yml 中的变量名保持一致
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:teamflow}?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:teamflow123}
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:teamflow123}
+      connect-timeout: 2s
+      timeout: 3s
+
+  jackson:
+    # 展示层统一东八区（PRD 6.5）
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis-plus:
+  configuration:
+    # 驼峰映射：created_at -> createdAt
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+    db-config:
+      # 雪花 ID（接口约定：JSON 中以字符串形式输出，见 common 的 JacksonConfig）
+      id-type: assign_id
+      # 逻辑删除：实体只要存在 deleted 字段即自动生效
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    com.teamflow: info

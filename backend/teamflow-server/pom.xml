@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.teamflow</groupId>
+        <artifactId>teamflow</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>teamflow-server</artifactId>
+    <name>teamflow-server</name>
+    <description>唯一启动模块，聚合各业务模块，配置 Security/Redis/Web</description>
+
+    <dependencies>
+        <!-- 聚合全部业务模块 -->
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-system</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-organization</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-project</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-task</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-notification</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-audit</artifactId>
+        </dependency>
+
+        <!-- Redis（M0 ping 健康检查使用；M1 起用于登出黑名单/角色缓存） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- MySQL 驱动 -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.teamflow.TeamFlowApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

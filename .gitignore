@@ -1,0 +1,52 @@
+# ============================================================
+# TeamFlow 仓库级 .gitignore
+# ============================================================
+
+# ---- Java / Maven（后端） ----
+backend/**/target/
+*.class
+*.war
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+dependency-reduced-pom.xml
+
+# ---- Node / Vite（前端） ----
+frontend/node_modules/
+frontend/dist/
+frontend/*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---- 环境与密钥（敏感配置不进仓库） ----
+.env
+.env.*
+
+# ---- 文档与配置（按需求不入库） ----
+docs/
+.env.example
+docker-compose.dev.yml
+database/
+
+# ---- 本地临时文件 ----
+.trae-html-share-packages/
+新建 文本文档.txt
+
+# ---- 日志 ----
+*.log
+logs/
+
+# ---- IDE ----
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.code-workspace
+
+# ---- 操作系统 ----
+.DS_Store
+Thumbs.db
+desktop.ini
