@@ -42,8 +42,8 @@ export function fmtDateTime(date) {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`
 }
 
-/** 头像背景色（按用户名稳定取色） */
-const AVATAR_COLORS = ['#3370ff', '#00b578', '#ff8800', '#f54a45', '#7f3bf5', '#14c0ff', '#f53f8c']
+/** 头像背景色（按用户名稳定取色；松墨体系的低饱和墨青系） */
+const AVATAR_COLORS = ['#0f7b6c', '#8a5fbf', '#b98036', '#c2543f', '#3e6b8f', '#5b7553', '#a85b7e']
 export function avatarColor(name = '') {
   let hash = 0
   for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) >>> 0

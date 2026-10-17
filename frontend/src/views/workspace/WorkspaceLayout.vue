@@ -99,8 +99,13 @@ async function onLogout() {
 
 <template>
   <div class="app">
-    <!-- 侧边栏 -->
+    <!-- 侧边栏：深松墨，纵向流线导航 -->
     <aside class="side">
+      <div class="brand">
+        <div class="mark tf-num">TF</div>
+        <span class="wordmark tf-num">TeamFlow</span>
+      </div>
+
       <!-- 组织切换器（T4.3：仅列出所属组织） -->
       <el-dropdown class="org-switch-dd" trigger="click" @command="onSwitchOrg">
         <div class="org-switch">

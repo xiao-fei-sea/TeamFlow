@@ -1,0 +1,228 @@
+/* ============================================================
+   TeamFlow 全局主题 —— 「松墨 · 雾纸」
+   深松墨侧栏 + 冷雾纸画布 + 松石青单点强调
+   字型：系统栈（中文产品原生质感），个性由字重与色彩承担
+   ============================================================ */
+
+:root {
+  /* ---- 画布与墨色 ---- */
+  --tf-paper: #f2f5f4;        /* 雾纸画布 */
+  --tf-surface: #ffffff;      /* 面板 */
+  --tf-ink: #1a2b32;          /* 主文字 */
+  --tf-ink-2: #46585f;        /* 次级文字 */
+  --tf-ink-3: #7d8b91;        /* 弱文字 */
+  --tf-line: #dfe6e4;         /* 发丝线 */
+  --tf-pine: #132e2b;         /* 深松墨（侧栏/品牌区） */
+  --tf-pine-2: #1c403c;       /* 松墨浮起层 */
+  --tf-teal: #0f7b6c;         /* 松石青（唯一强调色） */
+  --tf-teal-deep: #0c6256;
+
+  /* ---- 字型 ---- */
+  --tf-font:
+    'MiSans', 'HarmonyOS Sans SC', 'PingFang SC', 'Microsoft YaHei UI',
+    'Microsoft YaHei', 'Segoe UI', system-ui, sans-serif;
+  --tf-font-disp:
+    'Avenir Next', 'Segoe UI Variable Display', 'Segoe UI',
+    'MiSans', 'HarmonyOS Sans SC', 'PingFang SC', sans-serif;
+
+  /* ---- Element Plus 变量重映射（主色/语义色/圆角/线/字） ---- */
+  --el-color-primary: #0f7b6c;
+  --el-color-primary-dark-2: #0c6256;
+  --el-color-primary-light-3: #57a298;
+  --el-color-primary-light-5: #87bdb6;
+  --el-color-primary-light-7: #b7d7d3;
+  --el-color-primary-light-8: #cfe5e2;
+  --el-color-primary-light-9: #e7f2f0;
+  --el-color-success: #3e8e5a;
+  --el-color-warning: #b98036;
+  --el-color-danger: #c2543f;
+  --el-color-error: #c2543f;
+  --el-color-info: #64747d;
+  --el-bg-color-page: #f2f5f4;
+  --el-bg-color: #ffffff;
+  --el-text-color-primary: #1a2b32;
+  --el-text-color-regular: #46585f;
+  --el-text-color-secondary: #7d8b91;
+  --el-text-color-placeholder: #9aa7ac;
+  --el-border-color: #dfe6e4;
+  --el-border-color-light: #e6ecea;
+  --el-border-color-lighter: #edf1f0;
+  --el-fill-color-light: #eef3f2;
+  --el-fill-color-lighter: #f5f8f7;
+  --el-border-radius-base: 8px;
+  --el-border-radius-small: 6px;
+  --el-font-family: var(--tf-font);
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--tf-paper);
+  color: var(--tf-ink);
+  font-family: var(--tf-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 数字与拉丁字标用展示字型（更收紧的字距） */
+.tf-num {
+  font-family: var(--tf-font-disp);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- 滚动条 ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7d3d0;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a9bab6;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- 按钮：收圆角、加字重，次要按钮去描边改浅底 ---------- */
+.el-button {
+  font-weight: 600;
+  border-radius: 8px;
+}
+.el-button--primary {
+  --el-button-hover-bg-color: var(--tf-teal-deep);
+  --el-button-active-bg-color: #0a5248;
+}
+.el-button.is-link {
+  font-weight: 500;
+}
+.el-button--large {
+  border-radius: 10px;
+}
+
+/* ---------- 输入：面板内弱化边框，聚焦回归墨青 ---------- */
+.el-input__wrapper,
+.el-select__wrapper,
+.el-textarea__inner {
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px var(--el-border-color) inset;
+}
+.el-input__wrapper.is-focus,
+.el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 1.5px var(--tf-teal) inset;
+}
+
+/* ---------- 弹窗：唯一允许「浮起」的地方 ---------- */
+.el-dialog {
+  border-radius: 16px;
+  box-shadow:
+    0 24px 64px rgba(19, 46, 43, 0.16),
+    0 2px 8px rgba(19, 46, 43, 0.08);
+}
+.el-dialog__header {
+  padding-bottom: 12px;
+  margin-right: 0;
+}
+.el-dialog__title {
+  font-weight: 650;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+.el-message-box {
+  border-radius: 14px;
+  box-shadow: 0 16px 48px rgba(19, 46, 43, 0.18);
+}
+
+/* ---------- 表格：去横线密度，表头弱化为小字说明 ---------- */
+.el-table {
+  --el-table-header-bg-color: transparent;
+  --el-table-border-color: var(--tf-line);
+  --el-table-row-hover-bg-color: #f7faf9;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.el-table th.el-table__cell {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tf-ink-3);
+  letter-spacing: 0.02em;
+}
+.el-table .el-table__cell {
+  padding: 10px 0;
+}
+
+/* ---------- 分页 / 标签 / 空态 ---------- */
+.el-pagination {
+  --el-pagination-button-bg-color: transparent;
+  font-family: var(--tf-font-disp);
+}
+.el-pagination .el-pager li.is-active {
+  background: var(--tf-pine);
+  color: #fff;
+  border-radius: 8px;
+}
+.el-tag {
+  border-radius: 999px;
+  font-weight: 600;
+}
+.el-empty__description p {
+  color: var(--tf-ink-3);
+}
+
+/* ---------- 标签页：下划线换成墨青短横，主动效克制 ---------- */
+.el-tabs__item {
+  font-weight: 550;
+  color: var(--tf-ink-2);
+}
+.el-tabs__item.is-active {
+  color: var(--tf-ink);
+  font-weight: 650;
+}
+.el-tabs__active-bar {
+  background-color: var(--tf-teal);
+  height: 2.5px;
+  border-radius: 2px;
+}
+
+/* ---------- 提示条 ---------- */
+.el-alert {
+  border-radius: 10px;
+}
+
+/* ---------- 开关/复选等强调件跟随主色（EP 自动继承 --el-color-primary） ---------- */
+
+/* ---------- 视图共用：页面头与面板 ---------- */
+.tf-page-title {
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  color: var(--tf-ink);
+  margin: 0;
+}
+
+/* 无障碍：键盘焦点可见 */
+:focus-visible {
+  outline: 2px solid var(--tf-teal);
+  outline-offset: 2px;
+}
+
+/* 动效尊重系统偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
