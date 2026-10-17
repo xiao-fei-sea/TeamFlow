@@ -84,6 +84,12 @@ public class GlobalExceptionHandler {
         return Result.fail(ResultCode.NOT_FOUND);
     }
 
+    /** 服务层字段级校验失败（唯一性冲突等）→ 40001 + 字段级错误，结构与 BindException 一致 */
+    @ExceptionHandler(FieldValidationException.class)
+    public Result<Map<String, Object>> handleFieldValidation(FieldValidationException e) {
+        return Result.fail(ResultCode.PARAM_ERROR, Map.of("errors", e.getErrors()));
+    }
+
     /** 业务异常：透传错误码与提示 */
     @ExceptionHandler(BusinessException.class)
     public Result<Void> handleBusiness(BusinessException e) {

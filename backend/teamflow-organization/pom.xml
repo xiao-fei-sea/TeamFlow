@@ -19,5 +19,24 @@
             <groupId>com.teamflow</groupId>
             <artifactId>teamflow-common</artifactId>
         </dependency>
+
+        <!-- Redis（TenantGuard 角色缓存 tf:org:member:{orgId}:{userId}，变更即失效） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- 单元测试（TenantGuard 拒绝路径，纯 Mockito 不起容器） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 </project>
