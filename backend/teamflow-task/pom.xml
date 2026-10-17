@@ -19,5 +19,19 @@
             <groupId>com.teamflow</groupId>
             <artifactId>teamflow-common</artifactId>
         </dependency>
+        <!-- TenantGuard/GuardMapper 租户与项目成员校验 -->
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-organization</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 </project>
