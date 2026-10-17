@@ -29,6 +29,9 @@ mybatis-plus:
   configuration:
     # 驼峰映射：created_at -> createdAt
     map-underscore-to-camel-case: true
+    # record/DTO 构造器按参数名映射（需编译保留参数名，父 POM 已开启 -parameters），
+    # 避免 SQL 列顺序与构造器参数顺序不一致导致类型错位（DATETIME -> Long）
+    arg-name-based-constructor-auto-mapping: true
   global-config:
     banner: false
     db-config:
@@ -38,6 +41,13 @@ mybatis-plus:
       logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
+
+teamflow:
+  jwt:
+    # HS256 密钥（生产环境必须通过 JWT_SECRET 注入；缺省值仅用于本地开发）
+    secret: ${JWT_SECRET:teamflow-dev-jwt-secret-key-change-me-in-production-0123456789}
+    # Token 有效期（小时），expiresIn = 86400
+    expire-hours: 24
 
 logging:
   level:

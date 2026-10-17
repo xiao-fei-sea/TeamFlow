@@ -19,5 +19,45 @@
             <groupId>com.teamflow</groupId>
             <artifactId>teamflow-common</artifactId>
         </dependency>
+
+        <!-- 用户搜索需校验 orgId 的 OWNER/ADMIN：复用 organization 的 TenantGuard（依赖方向合法：业务模块 → organization） -->
+        <dependency>
+            <groupId>com.teamflow</groupId>
+            <artifactId>teamflow-organization</artifactId>
+        </dependency>
+
+        <!-- Spring Security（认证过滤链/SecurityFilterChain/BCrypt） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- Redis（登出 JWT 黑名单 tf:auth:blacklist:{jti}） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- JJWT（HS256 签发/解析；impl 与 jackson 仅运行期需要） -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 </project>
